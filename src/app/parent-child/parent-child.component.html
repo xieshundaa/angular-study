@@ -1,0 +1,8 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Input 和 Output</div>
+  <div class="panel-body">
+
+    <child #child [panelTitle]="asd" (follow)='doSomthing($event)'></child>
+    <button class="btn btn-success" (click)='child.childFun()'>调用子组件的方法</button>
+  </div>
+</div>

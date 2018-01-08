@@ -1,0 +1,12 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    第二个组件
+  </div>
+  <div class="panel-body" (click)='readData()'>
+    <button class="btn btn-primary" (click)='readData()'>读数据</button>
+  </div>
+  <div *ngIf='obj'>
+    <p>名字：{{obj.name}}</p>
+    <p>年龄：{{obj.age}}</p>
+  </div>
+</div>

@@ -3,16 +3,33 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { ParentChildComponent } from './parent-child/parent-child.component';
+import { ChildComponent } from './parent-child/child/child.component';
+import { BrotherComponent } from './brother/brother.component';
+import { Child1Component } from './brother/child1/child1.component';
+import { Child2Component } from './brother/child2/child2.component';
+import { BtnStatusService } from './brother/service/btn-status.service';
+import { LocalStorgeComponent } from './local-storge/local-storge.component';
+import { Child1LocalComponent } from './local-storge/child1/child1.component';
+import { Child2LocalComponent } from './local-storge/child2/child2.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ParentChildComponent,
+    ChildComponent,
+    BrotherComponent,
+    Child1Component,
+    Child2Component,
+    Child1LocalComponent,
+    Child2LocalComponent,
+    LocalStorgeComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [BtnStatusService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
