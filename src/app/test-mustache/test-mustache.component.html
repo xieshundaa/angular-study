@@ -1,0 +1,12 @@
+<div>插值语法关键代码实例：</div>
+<h1>欢迎来到{{title}}</h1>
+<div>简单的数学表达式求值：</div>
+<h3>1+1={{1+1}}</h3>
+<div>调用组件里面定义的方法：</div>
+<h3>可以调用方法{{getVal()}}</h3>
+<input #heroInput/>
+<p>{{heroInput.value}}</p>
+<button class="btn btn-success" (click)='sayHello(heroInput.value)'>局部变量</button>
+<div>属性绑定</div>
+<img [src]='imgSrc' />
+
