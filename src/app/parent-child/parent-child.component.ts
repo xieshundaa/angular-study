@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parent-child.component.scss']
 })
 export class ParentChildComponent implements OnInit {
-  public asd: String = '一个新的标题！';
+  public asd: String = '从父组件传过来一个新的标题！';
   constructor() { }
 
   ngOnInit() {
   }
   doSomthing(val) {
-    alert(val);
+    console.log(val + '1233123');
   }
 }

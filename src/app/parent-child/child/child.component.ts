@@ -10,13 +10,13 @@ export class ChildComponent implements OnInit {
   public panelTitle: string;
   @Output()
   public follow = new EventEmitter<string>();
-  public paneltitle = '子组件的名字';
+  public paneltitle = '从子组件的传递过来的信息';
   constructor() { }
 
   ngOnInit() {
   }
   public childFun() {
-    console.log(this.paneltitle);
+    console.log(this.panelTitle);
   }
   public emitAnEvent(val) {
     this.follow.emit(val);

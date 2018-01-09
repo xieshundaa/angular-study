@@ -1,5 +1,8 @@
-<p>
-  child works!
-</p>
-<div>{{panelTitle}}</div>
-<button class="btn btn-primary" (click)='emitAnEvent(paneltitle)'>触发事件</button>
+
+<div class="panel panel-success">
+  <div class="panel-heading">{{panelTitle}}</div>
+  <div class="panel-body">
+      <button class="btn btn-primary" (click)='emitAnEvent(paneltitle)'>触发事件</button>
+  </div>
+</div>
+
