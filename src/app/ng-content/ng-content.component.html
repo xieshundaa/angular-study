@@ -1,0 +1,11 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">第一个组件</div>
+  <div class="panel-body">
+    <app-child-two>
+      <h3>这是父层投影进来的内容</h3>
+      <app-child-one (sayhello)="doSomething()"></app-child-one>
+      <p>这是底部内容</p>
+    </app-child-two>
+  </div>
+</div>
+
