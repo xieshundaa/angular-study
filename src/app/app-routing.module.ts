@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
+import { SelectivePreloadingStrategy } from './common/selective-preloading-strategy';
 
 const appRoutes: Routes = [
   {
@@ -8,7 +9,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'hero',
-    loadChildren: './hero/hero.module#HeroModule'
+    loadChildren: './hero/hero.module#HeroModule',
+    data: { preload: true }
   },
   {
     path: 'work',
@@ -28,9 +30,12 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: false } // <-- debugging purposes only
+      { enableTracing: false,
+        preloadingStrategy: SelectivePreloadingStrategy
+      } // <-- debugging purposes only
     )
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [SelectivePreloadingStrategy]
 })
 export class AppRoutingModule {}
