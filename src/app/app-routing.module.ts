@@ -3,14 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   {
-    path: 'admin',
-    loadChildren: 'app/home/home.module#HomeModule'
-
-    // canLoad: [AuthGuardService]
+    path: 'home',
+    loadChildren: './home/home.module#HomeModule'
   },
   {
     path: 'hero',
-    loadChildren: 'app/hero/hero.module#HeroModule'
+    loadChildren: './hero/hero.module#HeroModule'
   },
   {
     path: '',
@@ -19,7 +17,7 @@ const appRoutes: Routes = [
   },
   {
     path: '**',
-    loadChildren: 'app/home/home.module#HomeModule'
+    loadChildren: './home/home.module#HomeModule'
   }
 ];
 @NgModule({

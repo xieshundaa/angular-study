@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 
 import { HomeRoutingModule } from './home-routing.module';
+import { PictureComponent } from './picture/picture.component';
+import { TextComponent } from './text/text.component';
 
 @NgModule({
   imports: [
@@ -11,9 +13,11 @@ import { HomeRoutingModule } from './home-routing.module';
     HomeRoutingModule
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    PictureComponent,
+    TextComponent
   ],
-  providers: [ ],
+  providers: [],
   bootstrap: []
 })
 
