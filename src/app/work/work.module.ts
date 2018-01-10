@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { HeroRoutingModule } from './hero-routing.module';
-import { HeroComponent } from './hero.component';
+import { WorkRoutingModule } from './work-routing.module';
+import { WorkComponent } from './work.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    HeroRoutingModule
+    WorkRoutingModule
   ],
   declarations: [
-    HeroComponent
+    WorkComponent
   ],
   providers: [],
   bootstrap: []
 })
 
-export class HeroModule {}
+export class WorkModule {}

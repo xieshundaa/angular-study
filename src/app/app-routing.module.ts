@@ -11,6 +11,10 @@ const appRoutes: Routes = [
     loadChildren: './hero/hero.module#HeroModule'
   },
   {
+    path: 'work',
+    loadChildren: './work/work.module#WorkModule'
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
