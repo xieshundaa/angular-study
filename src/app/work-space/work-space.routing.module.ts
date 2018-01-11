@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WorkSpaceComponent } from './work-space.component';
 
-const workSpaceRoutes: Routes = [
+
+const workSpaceRoutes = [
   {
-    path: 'workspace',
+    path: '',
     component: WorkSpaceComponent,
     children: [
       {
         path: '',
-        redirectTo: '/home',
+        redirectTo: 'home',
         pathMatch: 'full'
       },
       {
@@ -27,7 +28,6 @@ const workSpaceRoutes: Routes = [
     ]
   }
 ];
-
 @NgModule({
   imports: [RouterModule.forChild(workSpaceRoutes)],
   exports: [RouterModule]
