@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent implements OnInit {
-  constructor() {}
+  constructor(public router: Router) {}
 
   ngOnInit() {
+  }
+  gohome() {
+    this.router.navigateByUrl('home');
   }
 }
