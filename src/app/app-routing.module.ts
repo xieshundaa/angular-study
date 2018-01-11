@@ -1,29 +1,39 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { SelectivePreloadingStrategy } from './common/selective-preloading-strategy';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
+  // {
+  //   path: 'home',
+  //   loadChildren: './home/home.module#HomeModule'
+  // },
+  // {
+  //   path: 'hero',
+  //   loadChildren: './hero/hero.module#HeroModule',
+  //   data: { preload: true }
+  // },
+  // {
+  //   path: 'work',
+  //   loadChildren: './work/work.module#WorkModule'
+  // },
   {
-    path: 'home',
-    loadChildren: './home/home.module#HomeModule'
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path: 'hero',
-    loadChildren: './hero/hero.module#HeroModule',
-    data: { preload: true }
-  },
-  {
-    path: 'work',
-    loadChildren: './work/work.module#WorkModule'
+    path: 'workspace',
+    data: {preload: true},
+    loadChildren: './work-space/work-space.module#WorkSpaceModule'
   },
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
     path: '**',
-    loadChildren: './home/home.module#HomeModule'
+    component: LoginComponent
   }
 ];
 @NgModule({
