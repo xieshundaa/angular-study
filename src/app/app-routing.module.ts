@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { SelectivePreloadingStrategy } from './common/selective-preloading-strategy';
 import { LoginComponent } from './login/login.component';
+import { AuthService } from './guard/auth.service';
+import { AuthGuardService } from './guard/auth.guard';
 
 const appRoutes: Routes = [
   // {
@@ -24,6 +26,7 @@ const appRoutes: Routes = [
   {
     path: 'workspace',
     data: {preload: true},
+    canActivate: [AuthGuardService],
     loadChildren: './work-space/work-space.module#WorkSpaceModule'
   },
   {

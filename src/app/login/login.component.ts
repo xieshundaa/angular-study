@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   goworkSpace() {
+    localStorage.setItem('userId', '123123');
     // this.router.navigateByUrl('/workspace');
     this.router.navigateByUrl('workspace');
   }

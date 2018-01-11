@@ -17,7 +17,7 @@
                 <li routerLinkActive="active" class="dropdown">
                     <a routerLink="home">主页</a>
                 </li>
-                <li routerLinkActive="active" class="dropdown">
+                <li routerLinkActive="active" class="dropdown" *ngIf="!authService.isLoggedIn">
                     <a routerLink="hero">英雄</a>
                 </li>
                 <li routerLinkActive="active" class="dropdown">
@@ -30,6 +30,7 @@
 <!-- 主体内容区域 -->
 <div class="container main-container">
     <router-outlet></router-outlet>
+    <button class="btn btn-success" (click)="logout()">退出</button>
 </div>
 <!-- 底部区域 -->
 <div class="footer bs-footer">
