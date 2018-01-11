@@ -19,4 +19,5 @@ export class WorkSpaceComponent implements OnInit {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
+  // *ngIf="!authService.isLoggedIn"
 }

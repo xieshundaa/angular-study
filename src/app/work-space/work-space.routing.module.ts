@@ -23,7 +23,7 @@ const workSpaceRoutes = [
       {
         path: 'hero',
         data: {preload: true},
-        canLoad: {AuthGuardService},
+        canLoad: [AuthGuardService],
         canActivate: [AuthGuardService],
         loadChildren: '../hero/hero.module#HeroModule'
       },
@@ -37,6 +37,7 @@ const workSpaceRoutes = [
 ];
 @NgModule({
   imports: [RouterModule.forChild(workSpaceRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthService, AuthGuardService]
 })
 export class WorkSpaceRoutingModule {}

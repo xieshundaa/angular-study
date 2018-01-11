@@ -1,34 +1,43 @@
 <div class="container">
   <div style="margin: 200px auto;">
-    <form class="form-horizontal">
+    <form class="form-horizontal" [formGroup]="validateForm" novalidate (ngSubmit)="_submitForm()">
       <h2 class="text-center">登录</h2>
       <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label">admin</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputEmail3" placeholder="adsmin">
+          <input type="text" class="form-control" id="inputEmail3" placeholder="admin" formControlName="admin" minlength="2" maxlength="16">
+          <div class="alert alert-danger" *ngIf="validateForm.controls.admin.dirty && validateForm.controls.admin.hasError('required')">
+            <div *ngIf="validateForm.controls.admin.dirty && validateForm.controls.admin.hasError('required')">请输入账号！</div>
+            <div *ngIf="validateForm.controls.admin.errors?.minlength || validateForm.controls.admin.errors?.maxlength || validateForm.controls.admin.errors?.pattern">账号长度应为6-16位数字或者字母组合</div>
+          </div>
         </div>
       </div>
+
       <div class="form-group">
         <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
         <div class="col-sm-10">
-          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          <input type="password" class="form-control" id="inputPassword3" placeholder="Password" formControlName="password">
+          <div class="alert alert-danger" *ngIf="validateForm.controls.password.dirty && validateForm.controls.password.hasError('required')">
+            <div *ngIf="validateForm.controls.password.dirty && validateForm.controls.password.hasError('required')">请输入密码！</div>
+          </div>
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <div class="checkbox">
             <label>
-              <input type="checkbox"> Remember me
+              <input type="checkbox" formControlName="remember"> Remember me
             </label>
           </div>
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-primary btn-block" (click)="goworkSpace()">Sign in</button>
+          <button type="submit" class="btn btn-primary btn-block">Sign in</button>
         </div>
       </div>
     </form>
   </div>
 </div>
 <!-- <button class="btn btn-success" (click)="goworkSpace()">登录</button> -->
+<!-- (click)="goworkSpace()" -->

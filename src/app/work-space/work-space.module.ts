@@ -4,8 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { WorkSpaceRoutingModule } from './work-space.routing.module';
 import { WorkSpaceComponent } from './work-space.component';
-import { AuthService } from '../guard/auth.service';
-import { AuthGuardService } from '../guard/auth.guard';
+
 
 @NgModule({
   imports: [
@@ -15,7 +14,7 @@ import { AuthGuardService } from '../guard/auth.guard';
   declarations: [
     WorkSpaceComponent
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [],
   bootstrap: []
 })
 
