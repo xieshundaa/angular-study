@@ -11,6 +11,13 @@ export class FormQuickComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
+    // this.asd = this.regModel;
+    // console.log(typeof this.regModel);
+    // console.log(this.regModel.rememeberMe);
+    // console.log(JSON.stringify(this.regModel));
 
+  }
+  _submitform() {
+      console.log(this.regModel);
+  }
 }
