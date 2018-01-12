@@ -2,7 +2,7 @@
   <div class="panel panel-primary">
     <div class="panel-heading">用户注册</div>
     <div class="panel-body">
-      <form #registerForm="ngForm" class="form-horizontal" (ngSubmit)="_submitform()">
+      <form #registerForm="ngForm" class="form-horizontal" (ngSubmit)="_submitform(registerForm.value)">
         <div class="form-group" [ngClass]="{'has-error': userName.invalid && (userName.dirty || userName.touched) }">
           <label class="col-xs-2 control-label">用户名：</label>
           <div class="col-xs-10">
@@ -23,7 +23,7 @@
             </div>
           </div>
         </div>
-        <div class="form-group"  [ngClass]="{'has-error': mobile.invalid && (mobile.dirty || mobile.touched) }">
+        <div class="form-group"  [class.has-error]="mobile.invalid && (mobile.dirty || mobile.touched)">
           <label class="col-xs-2 control-label">手机号：</label>
           <div class="col-xs-10">
             <!-- <input #mobile="ngModel" [(ngModel)]="regModel.mobile" name="mobile" ChineseMobileValidator class="form-control" placeholder="Mobile">
@@ -54,6 +54,7 @@
             </div>
           </div>
         </div>
+
         <button class="btn btn-success" type="submit" [disabled]="!registerForm.form.valid">提交</button>
         <button class="btn btn-success" type="button" (click)="registerForm.reset()">重置</button>
       </form>

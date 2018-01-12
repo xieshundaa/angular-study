@@ -17,7 +17,7 @@ export class FormQuickComponent implements OnInit {
     // console.log(JSON.stringify(this.regModel));
 
   }
-  _submitform() {
-      console.log(this.regModel);
+  _submitform(obj) {
+      console.log(JSON.stringify(obj));
   }
 }

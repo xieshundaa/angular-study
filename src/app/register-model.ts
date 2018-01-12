@@ -1,9 +1,7 @@
-export class RegisterModel {  valid(arg0: any): any {
-    throw new Error("Method not implemented.");
-  }
-
+export class RegisterModel  {
   userName: string;
   password: string;
+  confirmPassword: string;
   mobile: string;
   rememeberMe: Boolean = false;
 }
