@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">用户注册</div>
+    <div class="panel-body">
+      <form #registerForm="ngForm" class="form-horizontal">
+        <div class="form-group" [ngClass]="{'has-error': userName.invalid && (userName.dirty || userName.touched) }">
+          <label class="col-xs-2 control-label">用户名：</label>
+          <div class="col-xs-10">
+            <input #userName="ngModel" [(ngModel)]="regModel.userName" name="userName" type="email" class="form-control" placeholder="Email" required minlength="12" maxlength="32">
+            <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="text-danger">
+              <div *ngIf="userName.errors.required">
+                用户名不能为空
+              </div>
+              <div *ngIf="userName.errors.minlength">
+                最小长度不能小于12个字符
+              </div>
+              <div *ngIf="userName.errors.maxlength">
+                最大长度不能大于32个字符
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group"  [ngClass]="{'has-error': mobile.invalid && (mobile.dirty || mobile.touched) }">
+          <label class="col-xs-2 control-label">手机号：</label>
+          <div class="col-xs-10">
+            <!-- <input #mobile="ngModel" [(ngModel)]="regModel.mobile" name="mobile" ChineseMobileValidator class="form-control" placeholder="Mobile">
+            <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="text-danger">
+                <div *ngIf="!mobile.errors.ChineseMobileValidator">
+                  请输入合法的手机号
+                </div>
+            </div> -->
+            <input #mobile="ngModel" [(ngModel)]="regModel.mobile" name="mobile" class="form-control" placeholder="Mobile" required pattern="/^1(3|4|5|7|8)\d{9}$/">
+            <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="text-danger">
+                <div *ngIf="mobile.errors.required">请输入手机号</div>
+                <div *ngIf="mobile.errors.pattern">
+                  请输入合法的手机号
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-xs-2 control-label">密码：</label>
+          <div class="col-xs-10">
+            <input #pwd name="password" type="password" class="form-control" placeholder="Password" (keyup)="0">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="panel-footer">
+      <p>用户名：{{userName.value}}
+                {{userName.valid}}
+                {{userName.invalid}}
+                {{userName.pending}}
+                {{userName.pristine}}
+                {{userName.dirty}}
+                {{userName.untouched}}
+                {{userName.touched}}
+      </p>
+      <p>密码：{{pwd.value}}</p>
+      <p>手机号：{{mobile.value}}</p>
+      <p>表单状态： {{registerForm.valid}}
+                   {{registerForm.invalid}}
+                   {{registerForm.pending}}
+                   {{registerForm.pristine}}
+                   {{registerForm.dirty}}
+                   {{registerForm.untouched}}
+                   {{registerForm.touched}}
+      </p>
+    </div>
+  </div>
+</div>

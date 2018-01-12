@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ParentChildComponent } from './parent-child/parent-child.component';
@@ -12,6 +12,7 @@ import { BtnStatusService } from './brother/service/btn-status.service';
 import { LocalStorgeComponent } from './local-storge/local-storge.component';
 import { Child1LocalComponent } from './local-storge/child1/child1.component';
 import { Child2LocalComponent } from './local-storge/child2/child2.component';
+import { FormQuickComponent } from './form-quick/form-quick.component';
 
 
 @NgModule({
@@ -24,10 +25,12 @@ import { Child2LocalComponent } from './local-storge/child2/child2.component';
     Child2Component,
     Child1LocalComponent,
     Child2LocalComponent,
-    LocalStorgeComponent
+    LocalStorgeComponent,
+    FormQuickComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [BtnStatusService],
   bootstrap: [AppComponent]
