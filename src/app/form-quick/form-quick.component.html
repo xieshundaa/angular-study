@@ -2,7 +2,7 @@
   <div class="panel panel-primary">
     <div class="panel-heading">用户注册</div>
     <div class="panel-body">
-      <form #registerForm="ngForm" class="form-horizontal" (ngSubmit)="_submitform(registerForm.value)">
+      <form #registerForm="ngForm" class="form-horizontal" (ngSubmit)="_submitform(registerForm, $event)" novalidate>
         <div class="form-group" [ngClass]="{'has-error': userName.invalid && (userName.dirty || userName.touched) }">
           <label class="col-xs-2 control-label">用户名：</label>
           <div class="col-xs-10">
@@ -55,7 +55,7 @@
           </div>
         </div>
 
-        <button class="btn btn-success" type="submit" [disabled]="!registerForm.form.valid">提交</button>
+        <button class="btn btn-success" type="submit" [disabled]="!registerForm.valid">提交</button>
         <button class="btn btn-success" type="button" (click)="registerForm.reset()">重置</button>
       </form>
     </div>
