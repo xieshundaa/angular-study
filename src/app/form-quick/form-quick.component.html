@@ -1,6 +1,6 @@
 <div class="container">
   <div class="panel panel-primary">
-    <div class="panel-heading">用户注册</div>
+    <div class="panel-heading">用户注册(模板驱动表单)</div>
     <div class="panel-body">
       <form #registerForm="ngForm" class="form-horizontal" (ngSubmit)="_submitform(registerForm, $event)" novalidate>
         <div class="form-group" [ngClass]="{'has-error': userName.invalid && (userName.dirty || userName.touched) }">
@@ -32,7 +32,7 @@
                   请输入合法的手机号
                 </div>
             </div> -->
-            <input #mobile="ngModel" [(ngModel)]="regModel.mobile" name="mobile" class="form-control" placeholder="Mobile" required pattern="^1(3|4|5|7|8)\d{9}$">
+            <input #mobile="ngModel" [(ngModel)]="regModel.mobile" name="mobile" class="form-control" placeholder="账号" required pattern="^1(3|4|5|7|8)\d{9}$">
             <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="text-danger">
                 <div *ngIf="mobile.errors.required">请输入手机号</div>
                 <div *ngIf="  mobile.errors.pattern">
@@ -42,24 +42,58 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="col-xs-2 control-label">密码：</label>
+          <label class="col-xs-2 control-label">密码:</label>
           <div class="col-xs-10">
-            <input #password="ngModel" [(ngModel)]="regModel.password" name="password" type="password" class="form-control" placeholder="password" required minlength="6">
+            <input #password="ngModel" [(ngModel)]="regModel.password" name="password" type="password" class="form-control" placeholder="密码" required minlength="6" validateEqual="confirmPassword" reverse="true">
             <!-- <input #pwd name="password" type="password" class="form-control" placeholder="Password" (keyup)="0"> -->
             <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
                 <div *ngIf="password.errors.required">请输入密码</div>
                 <div *ngIf="password.errors.minlength">
                   密码长度最少为6位
                 </div>
+
             </div>
           </div>
         </div>
-
+        <div class="form-group">
+          <label class="col-xs-2 control-label">确认密码:</label>
+          <div class="col-xs-10">
+            <input #confirmPassword="ngModel" [(ngModel)]="regModel.confirmPassword" name="confirmPassword" type="password" class="form-control" placeholder="确认密码" required minlength="6" confirmPassword="password" reverse="false">
+            <!-- <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="text-danger">
+              <div *ngIf="confirmPassword.errors.required">请输入密码</div>
+              <div *ngIf="confirmPassword.errors.validateEqual">两次密码输入不一致</div>
+              <div *ngIf="confirmPassword.errors.minlength">
+                再次输入的密码长度最少为6位
+              </div>
+            </div> -->
+            <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="text-danger">
+              <div *ngIf="confirmPassword.errors.required" >
+                确认密码是必填项
+              </div>
+              <div *ngIf="confirmPassword.errors.minlength">
+                确认密码需至少6位
+              </div>
+              <div *ngIf="confirmPassword.errors.validateEqual">
+                确认密码不匹配
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" #rememeberMe="ngModel" [(ngModel)]="regModel.rememeberMe" name="rememeberMe">记住我
+                </label>
+              </div>
+            </div>
+          </div>
         <button class="btn btn-success" type="submit" [disabled]="!registerForm.valid">提交</button>
         <button class="btn btn-success" type="button" (click)="registerForm.reset()">重置</button>
       </form>
     </div>
     <div class="panel-footer">
+      <p>{{registerForm.value | json}}</p>
       <p>用户名：{{userName.value}}
                 {{userName.valid}}
                 {{userName.invalid}}

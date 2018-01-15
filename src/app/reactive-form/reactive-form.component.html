@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      用户注册（响应式表单）
+    </div>
+    <div class="panel-body">
+      <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+        <div class="form-horizontal">
+          <div class="form-group" [class.has-error]="userForm.controls.admin.invalid && (userForm.controls.admin.dirty || userForm.controls.admin.touched)" >
+            <label class="col-xs-2 control-label">用户名：</label>
+            <div class="col-xs-10">
+              <input type="text" class="form-control" formControlName="admin">
+              <!--<div *ngIf="userForm.get('admin').hasError('required') && user.get('admin').touched" class="error">-->
+                <!--email 是必填项-->
+              <!--</div>-->
+              <div *ngIf="userForm.controls.admin.invalid && (userForm.controls.admin.dirty || userForm.controls.admin.touched)" class="text-danger">
+                <div *ngIf="userForm.controls.admin.errors.required">请输入账号！</div>
+                <!--<div *ngIf="userForm.controls.admin.errors.minlength || userForm.controls.admin.errors.maxlength || userForm.controls.admin.hasError('pattern')">账号长度应为6-16位数字或者字母组合</div>-->
+                <div *ngIf="userForm.controls.admin.errors?.minlength">请输入正确长度</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" [ngClass]="{'has-error': userForm.controls.password.invalid && (userForm.controls.password.dirty || userForm.controls.password.touched)}">
+            <label class="col-xs-2 control-label">密码：</label>
+            <div class="col-xs-10">
+              <input type="password" class="form-control" formControlName="password">
+              <div class="text-danger" *ngIf="userForm.controls.password.invalid && (userForm.controls.password.dirty || userForm.controls.password.touched)">
+                <div *ngIf="userForm.controls.password.hasError('required')">请输入密码</div>
+                <div *ngIf="userForm.controls.password.hasError('pattern')">请输入数字或者字母组合的密码</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" formControlName="rememeberMe">记住我
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-3">
+              <button class="btn btn-success btn-block" type="submit" [disabled]="!userForm.valid">提交</button>
+            </div>
+            <div class="col-sm-3">
+              <button class="btn btn-danger btn-block" type="button" (click)="resetForm()">重置</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+

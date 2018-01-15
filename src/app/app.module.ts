@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ParentChildComponent } from './parent-child/parent-child.component';
@@ -13,6 +13,8 @@ import { LocalStorgeComponent } from './local-storge/local-storge.component';
 import { Child1LocalComponent } from './local-storge/child1/child1.component';
 import { Child2LocalComponent } from './local-storge/child2/child2.component';
 import { FormQuickComponent } from './form-quick/form-quick.component';
+import { RepeatValidatorDirective } from './repeat-validator.directive';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 
 @NgModule({
@@ -26,11 +28,14 @@ import { FormQuickComponent } from './form-quick/form-quick.component';
     Child1LocalComponent,
     Child2LocalComponent,
     LocalStorgeComponent,
-    FormQuickComponent
+    FormQuickComponent,
+    RepeatValidatorDirective,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [BtnStatusService],
   bootstrap: [AppComponent]
