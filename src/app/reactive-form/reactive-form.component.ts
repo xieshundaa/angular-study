@@ -15,6 +15,7 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit() {
     this.createForm();
   }
+  //表单验证
   createForm() {
     this.userForm = this.fb.group({
       admin: ['', [Validators.required, Validators.minLength(5)]],
@@ -22,6 +23,7 @@ export class ReactiveFormComponent implements OnInit {
       rememeberMe: ['', Validators.required]
     })
   }
+  //提交表单
   submitForm() {
     if (this.userForm.valid) {
       console.log(JSON.stringify(this.userForm.value));
